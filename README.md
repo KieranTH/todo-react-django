@@ -64,9 +64,9 @@ The backend is a Django application located in the `backend/` directory. It uses
 #### Running
 
 1. Run Backend Server:
-    ```sh
-    task backend
-    ```
+   ```sh
+   task backend
+   ```
 
 ### Frontend
 
@@ -75,18 +75,20 @@ The frontend is a React application located in the `frontend/` directory. It use
 #### Running
 
 1. Install Deps:
-    ```sh
-    task frontend-install
-    ```
+
+   ```sh
+   task frontend-install
+   ```
 
 2. Run Frontend Server:
-    ```sh
-    task frontend
-    ```
+   ```sh
+   task frontend
+   ```
 
 ### Building the Frontend
 
 To build the frontend for production, run:
+
 ```sh
 task build
 ```
@@ -100,13 +102,14 @@ The `Taskfile.yml` contains various tasks to streamline development.
 - **migrate**: Run migrations for the `todo` app.
 - **backend**: Run the backend server.
 - **frontend-install**: Install frontend dependencies.
-- **run**: Run the frontend development server.
+- **frontend**: Run the frontend development server.
 - **run-clean**: Install frontend dependencies and run the development server.
 - **build**: Build the frontend for production.
 
 #### Running Tasks
 
 To run a task, use the `task` command followed by the task name. For example, to run the backend server:
+
 ```sh
-task backend
+task {TASK}
 ```
