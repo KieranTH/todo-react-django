@@ -1,0 +1,42 @@
+version: '3'
+
+tasks:
+
+  migrate: 
+    dir: ./backend
+    desc: Run migrations
+    cmds:
+      - poetry run python manage.py makemigrations todo
+  
+  backend:
+    dir: ./backend
+    desc: Run backend server
+    cmds:
+      - poetry run python manage.py migrate
+      - poetry run python manage.py runserver
+      - poetry run python manage.py runserver
+
+  frontend-install:
+    dir: ./frontend
+    desc: Install FrontEnd Dependencies
+    cmds:
+      - npm i
+
+  frontend:
+    dir: ./frontend
+    desc: Run Frontend
+    cmds:
+      - npm run dev
+
+  run-clean:
+    dir: ./frontend
+    desc: Run Frontend
+    cmds:
+      - npm i
+      - npm run dev
+
+  build:
+    dir: ./frontend
+    desc: Build Frontend
+    cmds:
+      - npm run build
