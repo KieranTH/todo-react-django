@@ -61,6 +61,11 @@ If you're not - Feel free to parse through the `Taskfile.yml` file and look at a
 
 The backend is a Django application located in the `backend/` directory. It uses Poetry for dependency management.
 
+#### SuperUser
+
+Username: `admin`
+Password: `admin` (Very secure!)
+
 #### Running
 
 1. Run Backend Server:
