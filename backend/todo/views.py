@@ -5,8 +5,6 @@ from .serializers import ItemSerializer, ListSerializer
 from .models import ToDoList, Item
 
 # API Route for listing available routes
-
-
 @api_view(['GET'])
 def apiOverview(_):
     api_urls = {
@@ -24,8 +22,6 @@ def apiOverview(_):
     return Response(api_urls)
 
 # API Route for listing all lists
-
-
 @api_view(['GET'])
 def getLists(_):
     lists = ToDoList.objects.all()
@@ -33,8 +29,6 @@ def getLists(_):
     return Response(serializer.data)
 
 # API Route for listing a single list by it's ID
-
-
 @api_view(['GET'])
 def getList(_, pk):
     list = ToDoList.objects.get(id=pk)
@@ -42,8 +36,6 @@ def getList(_, pk):
     return Response(serializer.data)
 
 # API Route for creating a new list
-
-
 @api_view(['POST'])
 def listCreate(request):
     serializer = ListSerializer(data=request.data)
@@ -70,10 +62,9 @@ def listDel(_, pk):
     return Response("List deleted successfully.")
 
 # API Route for setting an list as completed
-
-
 @api_view(['POST'])
 def listComplete(_, pk):
+    # This Try - Catch logic should be implemented for all routes
     try:
         list = ToDoList.objects.get(id=pk)
         list.completed = True
@@ -92,8 +83,6 @@ def getListItems(_, pk):
     return Response(serializer.data)
 
 # API Route for getting items by list ID
-
-
 @api_view(['GET'])
 def getItem(_, pk):
     item = Item.objects.get(id=pk)
@@ -101,8 +90,6 @@ def getItem(_, pk):
     return Response(serializer.data)
 
 # API Route for creating a new item in a list
-
-
 @api_view(['POST'])
 def itemCreate(request):
     serializer = ItemSerializer(data=request.data)
@@ -121,8 +108,6 @@ def itemUpdate(request, pk):
     return Response(serializer.data)
 
 # API Route for setting an item as completed
-
-
 @api_view(['POST'])
 def itemComplete(_, pk):
     try:
@@ -135,8 +120,6 @@ def itemComplete(_, pk):
         return Response(status=404)
 
 # API Route for setting an item as incompleted
-
-
 @api_view(['POST'])
 def itemIncomplete(_, pk):
     try:
